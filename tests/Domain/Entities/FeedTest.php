@@ -10,7 +10,7 @@ class FeedTest extends TestCase
 {
     public function test_Novo_Feed_Deve_Comecar_Com_Id_Zero()
     {
-        $feed = Feed::novo(
+        $feed = new Feed(
             'Blog do Bruno',
             'https://brunoviana.dev/rss.xml'
         );
@@ -20,7 +20,7 @@ class FeedTest extends TestCase
 
     public function test_Novo_Feed_Deve_Inserir_Id_Com_Sucesso()
     {
-        $feed = Feed::novo(
+        $feed = new Feed(
             'Blog do Bruno',
             'https://brunoviana.dev/rss.xml'
         );
@@ -34,7 +34,7 @@ class FeedTest extends TestCase
     {
         $this->expectException(\RuntimeException::class);
 
-        $feed = Feed::novo(
+        $feed = new Feed(
             'Blog do Bruno',
             'https://brunoviana.dev/rss.xml'
         );
@@ -45,7 +45,7 @@ class FeedTest extends TestCase
 
     public function test_Feed_Deve_Retornar_Titulo_Correto()
     {
-        $feed = Feed::novo(
+        $feed = new Feed(
             'Blog do Bruno',
             'https://brunoviana.dev/rss.xml'
         );
@@ -55,7 +55,7 @@ class FeedTest extends TestCase
 
     public function test_Feed_Deve_Retornar_Link_Rss_Correto()
     {
-        $feed = Feed::novo(
+        $feed = new Feed(
             'Blog do Bruno',
             'https://brunoviana.dev/rss.xml'
         );

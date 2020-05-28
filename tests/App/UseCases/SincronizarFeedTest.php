@@ -31,7 +31,7 @@ class SincronizarFeedTest extends TestCase
 
     public function test_Deve_Atualizar_Feed_Com_Sucesso()
     {
-        $feed = Feed::novo(
+        $feed = new Feed(
             'Blog do Bruno',
             'https://brunoviana.dev/rss.xml'
         );

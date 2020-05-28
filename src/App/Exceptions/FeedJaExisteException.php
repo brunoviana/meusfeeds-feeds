@@ -1,6 +1,6 @@
 <?php
 
-namespace MeusFeeds\Feeds\Domain\Exceptions;
+namespace MeusFeeds\Feeds\App\Exceptions;
 
 use Exception;
 

@@ -28,18 +28,12 @@ class SincronizarFeed
 
     public function executar()
     {
-        $feedService = new FeedService();
+        $feed = $this->request->feed();
 
-        $feedService->setBuscadorDeArtigos($this->buscadorDeArtigos);
-        $feedService->setArtigoRepository($this->artigoRepository);
+        $artigos = $this->buscadorDeArtigos->buscarNovos($feed);
 
-        $feedService->sincronizarNovosArtigos(
-            $this->feed()
-        );
-    }
-
-    public function feed()
-    {
-        return $this->request->feed();
+        if ($artigos) {
+            $this->artigoRepository->salvarVarios($artigos);
+        }
     }
 }

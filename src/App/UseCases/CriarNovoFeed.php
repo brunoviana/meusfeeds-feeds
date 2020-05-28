@@ -7,7 +7,7 @@ use MeusFeeds\Feeds\Domain\Services\FeedService;
 use MeusFeeds\Feeds\App\Requests\CriarNovoFeedRequest;
 use MeusFeeds\Feeds\App\Responses\CriarNovoFeedResponse;
 use MeusFeeds\Feeds\Domain\Repositories\FeedRepositoryInterface;
-
+use MeusFeeds\Feeds\App\Exceptions\FeedJaExisteException;
 use MeusFeeds\Feeds\Domain\Interfaces\BuscadorDeArtigosInterface;
 use MeusFeeds\Feeds\Domain\Repositories\ArtigoRepositoryInterface;
 
@@ -35,23 +35,28 @@ class CriarNovoFeed
 
     public function executar()
     {
-        $feed = $this->criaFeed();
+        $titulo = $this->request->titulo();
+        $linkRss = $this->request->linkRss();
+
+        $feedEncontrado = $this->feedRepository->buscarPeloLink(
+            $linkRss
+        );
+
+        if ($feedEncontrado) {
+            throw new FeedJaExisteException('Este feed já está cadastrado');
+        }
+
+        $feed = new Feed($titulo, $linkRss);
+
+        $this->feedRepository->salvar($feed);
+
+        $artigos = $this->buscadorDeArtigos->buscarTodos($feed);
+
+        if ($artigos) {
+            $this->artigoRepository->salvarVarios($artigos);
+        }
 
         return $this->responder($feed);
-    }
-
-    public function criaFeed()
-    {
-        $feedService = new FeedService();
-
-        $feedService->setBuscadorDeArtigos($this->buscadorDeArtigos);
-        $feedService->setFeedRepository($this->feedRepository);
-        $feedService->setArtigoRepository($this->artigoRepository);
-
-        return $feedService->criarNovoFeed(
-            $this->request->titulo(),
-            $this->request->linkRss()
-        );
     }
 
     public function responder(Feed $feed)

@@ -10,12 +10,7 @@ class Feed
 
     private string $linkRss;
 
-    public static function novo(string $titulo, string $linkRss) : Feed
-    {
-        return new self($titulo, $linkRss);
-    }
-
-    private function __construct(string $titulo, string $linkRss)
+    public function __construct(string $titulo, string $linkRss)
     {
         $this->titulo = $titulo;
         $this->linkRss = $linkRss;
