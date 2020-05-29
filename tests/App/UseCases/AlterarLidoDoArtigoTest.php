@@ -48,4 +48,33 @@ class AlterarLidoDoArtigoTest extends TestCase
 
         $this->assertTrue($artigo->lido());
     }
+
+    public function test_Deve_Alterar_Artigo_Para_NAO_Lido_Corretamente()
+    {
+        $artigo = new Artigo(
+            'Hello World',
+            'Meu primeiro artigo',
+            'https://brunoviana.net/hello-world',
+            new Autor('Bruno Viana'),
+            new Data(2020, 01, 01),
+            1,
+            Artigo::LIDO
+        );
+
+        $this->assertTrue($artigo->lido());
+
+        $this->artigoRepositoryFake->salvar($artigo);
+
+        $alterarLidoDoArtigo = new AlterarLidoDoArtigo(
+            new AlterarLidoDoArtigoRequest(
+                1,
+                Artigo::NAO_LIDO
+            ),
+            $this->artigoRepositoryFake
+        );
+
+        $alterarLidoDoArtigo->executar();
+
+        $this->assertFalse($artigo->lido());
+    }
 }
