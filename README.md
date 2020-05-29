@@ -11,4 +11,4 @@ Este pacote é a implementação de todo o domínio e dos casos de uso referente
 
 * [x] Criar novo feed
 * [x] Sincronizar feeds cadastrados (buscar novos artigos)
-* [ ] Marcar artigos como lido/não lido
+* [x] Marcar artigos como lido/não lido

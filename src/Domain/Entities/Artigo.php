@@ -95,7 +95,7 @@ class Artigo
         return $this->dataPublicacao;
     }
 
-    public function lido($lido = null)
+    public function lido(bool $lido = null)
     {
         if ($lido !== null) {
             $this->lido = (bool) $lido;

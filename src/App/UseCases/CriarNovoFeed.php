@@ -3,7 +3,6 @@
 namespace MeusFeeds\Feeds\App\UseCases;
 
 use MeusFeeds\Feeds\Domain\Entities\Feed;
-use MeusFeeds\Feeds\Domain\Services\FeedService;
 use MeusFeeds\Feeds\App\Requests\CriarNovoFeedRequest;
 use MeusFeeds\Feeds\App\Responses\CriarNovoFeedResponse;
 use MeusFeeds\Feeds\Domain\Repositories\FeedRepositoryInterface;
