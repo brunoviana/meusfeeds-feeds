@@ -27,19 +27,7 @@ class Artigo
 
     private int $feedId;
 
-    public static function novo(
-        string $titulo,
-        string $descricao,
-        string $link,
-        Autor $autor,
-        Data $dataPublicacao,
-        int $feedId = 0,
-        int $lido = self::NAO_LIDO
-    ) : Artigo {
-        return new self($titulo, $descricao, $link, $autor, $dataPublicacao, $feedId, $lido);
-    }
-
-    private function __construct(
+    public function __construct(
         string $titulo,
         string $descricao,
         string $link,

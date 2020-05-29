@@ -22,7 +22,7 @@ class AlterarLidoDoArtigoTest extends TestCase
 
     public function test_Deve_Alterar_Artigo_Para_Lido_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',

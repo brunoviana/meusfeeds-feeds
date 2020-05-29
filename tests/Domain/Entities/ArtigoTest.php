@@ -12,7 +12,7 @@ class ArtigoTest extends TestCase
 {
     public function test_Novo_Artigo_Deve_Comecar_Com_Id_Zero()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -27,7 +27,7 @@ class ArtigoTest extends TestCase
 
     public function test_Novo_Artigo_Deve_Inserir_Id_Com_Sucesso()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -45,7 +45,7 @@ class ArtigoTest extends TestCase
     {
         $this->expectException(\RuntimeException::class);
 
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -61,7 +61,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Retornar_Titulo_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -76,7 +76,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Retornar_Descricao_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -91,7 +91,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Retornar_Link_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -106,7 +106,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Retornar_Autor_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -122,7 +122,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Retornar_Data_Da_Publicacao_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -138,7 +138,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Retornar_Se_Artigo_Foi_Lido_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -153,7 +153,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Marcar_Artigo_Como_Lido_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -170,7 +170,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Marcar_Artigo_Como_Nao_Lido_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',
@@ -187,7 +187,7 @@ class ArtigoTest extends TestCase
 
     public function test_Deve_Retornar_Id_Do_Feed_Corretamente()
     {
-        $artigo = Artigo::novo(
+        $artigo = new Artigo(
             'Hello World',
             'Meu primeiro artigo',
             'https://brunoviana.net/hello-world',

@@ -14,7 +14,7 @@ class BuscadorDeArtigosFake implements BuscadorDeArtigosInterface
     {
         if ($feed->linkRss() == 'https://brunoviana.dev/rss.xml') {
             return [
-                Artigo::novo(
+                new Artigo(
                     'Hello World',
                     'Meu primeiro artigo',
                     'https://brunoviana.net/hello-world',
@@ -23,7 +23,7 @@ class BuscadorDeArtigosFake implements BuscadorDeArtigosInterface
                     $feed->id(),
                     Artigo::NAO_LIDO
                 ),
-                Artigo::novo(
+                new Artigo(
                     'Hello Brasil',
                     'Meu segundo artigo',
                     'https://brunoviana.net/hello-brasil',
@@ -32,7 +32,7 @@ class BuscadorDeArtigosFake implements BuscadorDeArtigosInterface
                     $feed->id(),
                     Artigo::NAO_LIDO
                 ),
-                Artigo::novo(
+                new Artigo(
                     'Hello Ceará',
                     'Meu terceiro artigo',
                     'https://brunoviana.net/hello-ceara',
@@ -51,7 +51,7 @@ class BuscadorDeArtigosFake implements BuscadorDeArtigosInterface
     {
         if ($feed->linkRss() == 'https://brunoviana.dev/rss.xml') {
             return [
-                Artigo::novo(
+                new Artigo(
                     'Hello World',
                     'Meu primeiro artigo',
                     'https://brunoviana.net/hello-world',
